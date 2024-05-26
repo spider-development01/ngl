@@ -63,38 +63,13 @@
         }
 
         form{
-width:80%;
+            width:80%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-
-
 }
     </style>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', (event) => {
-            var socket = io.connect(window.location.href);
-
-            socket.on('message', function(msg) {
-                var messageElement = document.createElement('div');
-                messageElement.innerText = msg;
-                document.getElementById('messages').appendChild(messageElement);
-            });
-
-document.getElementById('sendbutton').onclick = function() {
-    var msg = document.getElementById('myMessage').value;
-    fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: `name=${msg}`
-    });
-    document.getElementById('myMessage').value = '';
-};
-        });
-    </script>
 </head>
 <body>
     <div class="contain">
