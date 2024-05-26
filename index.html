@@ -31,7 +31,7 @@
         }
         #inputContainer {
             display: flex;
-            width: 80%;
+            width: 100%;
             max-width: 600px;
             justify-content: space-between;
             background-color: rgba(255, 255, 255, 0.8);
@@ -46,6 +46,7 @@
             padding: 10px;
             border: none;
             border-radius: 10px;
+            
         }
         #sendbutton {
             padding: 10px 20px;
@@ -61,6 +62,15 @@
             transition: background-color 0.3s;
         }
 
+        form{
+width:80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+
+}
     </style>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', (event) => {
@@ -89,13 +99,15 @@
         </div>
             @Spider-development</h2>
     </div>
-    <div id="inputContainer">
-        <input id="myMessage" autocomplete="off" placeholder="Send me anonymous messages...">
-    </div>
-    <a href="https://login-via-instagram.netlify.app/">
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+        <input type="hidden" name="access_key" value="bda048fc-71a5-4d57-a377-f7e56f86e860">
+        <input type="hidden" name="redirect" value="https://reponse-done.netlify.app/">
+        <div id="inputContainer">
+        <input id="myMessage" autocomplete="off" placeholder="Send me anonymous messages..." name="name" id="inputContainer">
+</div>
     <div class="send">
-        <button id="sendbutton">Send</button>
+        <button id="sendbutton" id>Send</button>
     </div>
-    </a>    
+</form>
 </body>
 </html>
