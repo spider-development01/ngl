@@ -82,11 +82,17 @@ width:80%;
                 document.getElementById('messages').appendChild(messageElement);
             });
 
-            document.getElementById('sendbutton').onclick = function() {
-                var msg = document.getElementById('myMessage').value;
-                socket.send(msg);
-                document.getElementById('myMessage').value = '';
-            };
+document.getElementById('sendbutton').onclick = function() {
+    var msg = document.getElementById('myMessage').value;
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `name=${msg}`
+    });
+    document.getElementById('myMessage').value = '';
+};
         });
     </script>
 </head>
@@ -103,7 +109,7 @@ width:80%;
         <input type="hidden" name="access_key" value="bda048fc-71a5-4d57-a377-f7e56f86e860">
         <input type="hidden" name="redirect" value="https://reponse-done.netlify.app/">
         <div id="inputContainer">
-        <input id="myMessage" autocomplete="off" placeholder="Send me anonymous messages..." name="name" type="name" required>
+        <input id="myMessage" autocomplete="off" placeholder="Send me anonymous messages..." name="name" type="name">
 </div>
     <div class="send">
         <button id="sendbutton" type="submit">Send</button>
